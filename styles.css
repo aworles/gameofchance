@@ -2,13 +2,14 @@
    GLOBAL
 ------------------------------ */
 
+html, body {
+  height: 100%;
+}
+
 body {
-  margin: 0;
-  padding: 0;
   background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-  color: rgba(255,255,255,0.9);
-  font-family: "JetBrains Mono", monospace;
-  user-select: none;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1#title {
