@@ -19,15 +19,16 @@ body {
 h1#title {
   font-family: "Syne", sans-serif;
   font-size: 42px;
-  font-weight: 800;
+  font-weight: 400; /* TabType uses a lighter weight */
   color: white;
   margin: 25px 0 0 25px; /* top-left */
-  letter-spacing: -1.5px; /* tighter like TabType */
-  font-stretch: 85%; /* condensed width */
+  letter-spacing: -1.2px;
+  font-stretch: 85%; /* condensed like TabType */
   line-height: 1;
   white-space: nowrap;
-  transform: scaleX(0.88); /* final width correction */
-  transform-origin: left center; /* keeps it aligned left */
+  display: inline-block;
+  transform: scaleX(0.88); /* matches TabType width */
+  transform-origin: left center;
 }
 
 /* Center main content */
