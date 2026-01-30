@@ -3,7 +3,7 @@
 // ------------------------------
 
 let balance = 100;
-const goal = 5000;
+const goal = 5000; // ← CHANGE YOUR GOAL HERE
 let goalCode = "---";
 
 const colors = ["red", "white", "black"];
@@ -25,6 +25,7 @@ const restartBtn = document.getElementById("restartBtn");
 const message = document.getElementById("message");
 
 const goalBarFill = document.getElementById("goal-bar-fill");
+const goalBarText = document.getElementById("goal-bar-text");
 
 // ------------------------------
 // INITIAL SETUP
@@ -33,6 +34,7 @@ const goalBarFill = document.getElementById("goal-bar-fill");
 updateBalance();
 updateGoalBar();
 updateGoalCode();
+updateGoalText();
 
 // ------------------------------
 // HELPERS
@@ -45,6 +47,10 @@ function updateBalance() {
 function updateGoalBar() {
   const fill = Math.min(balance / goal, 1);
   goalBarFill.style.width = (fill * 100) + "%";
+}
+
+function updateGoalText() {
+  goalBarText.textContent = `Goal: ${goal} tabs`;
 }
 
 function updateGoalCode() {
@@ -165,5 +171,6 @@ restartBtn.addEventListener("click", () => {
   updateBalance();
   updateGoalBar();
   updateGoalCode();
+  updateGoalText();
   log("Game restarted.");
 });
