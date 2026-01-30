@@ -51,7 +51,7 @@ main {
   margin-top: 20px;
   padding: 0 5px;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
   letter-spacing: -0.5px;
 }
@@ -60,7 +60,7 @@ main {
   cursor: pointer;
   transition: 0.2s;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
   letter-spacing: -0.5px;
 }
@@ -91,9 +91,8 @@ main {
 
 #goal-bar-text {
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 20px;
   opacity: 0.8;
-  font-size: 15px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   letter-spacing: 0;
