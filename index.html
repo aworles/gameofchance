@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Casino</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Title -->
+  <h1 id="title">Tab Casino</h1>
+
+  <main>
+
+    <!-- Balance + Code Row -->
+    <div id="balance-row">
+      <div id="balance-display">Balance: 100 tabs</div>
+      <div id="goal-code">Code: ---</div>
+    </div>
+
+    <!-- Goal Bar -->
+    <div id="goal-bar">
+      <div id="goal-bar-fill"></div>
+    </div>
+    <div id="goal-bar-text">Goal: 5000 tabs</div>
+
+    <!-- Game Panel -->
+    <div id="game-panel">
+
+      <label>Bet Amount</label>
+      <input id="betInput" type="number" min="1" placeholder="Enter bet">
+
+      <label>Choose Color</label>
+      <select id="colorInput">
+        <option value="red">Red</option>
+        <option value="white">White</option>
+        <option value="black">Black</option>
+      </select>
+
+      <label>Choose Number</label>
+      <select id="numberInput">
+        <script>
+          for (let i = 1; i <= 10; i++) {
+            document.write(`<option value="${i}">${i}</option>`);
+          }
+        </script>
+      </select>
+
+      <button id="playBtn">Play</button>
+
+      <div id="message"></div>
+
+    </div>
+
+    <!-- Restart Button -->
+    <button id="restartBtn">Restart</button>
+
+  </main>
+
+  <!-- Confetti -->
+  <div id="confetti-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
