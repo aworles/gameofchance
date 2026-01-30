@@ -28,7 +28,7 @@ h1#title {
   line-height: 1;
   white-space: nowrap;
   display: inline-block;
-  transform: scaleX(1); 
+  transform: scaleX(1.2); 
   transform-origin: left center;
 }
 
