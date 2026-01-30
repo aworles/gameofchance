@@ -2,11 +2,6 @@
    GLOBAL
 ------------------------------ */
 
-html, body {
-  height: 100%;
-  min-height: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -19,7 +14,7 @@ body {
 h1#title {
   font-family: "Syne", sans-serif;
   font-size: 42px;
-  font-weight: 400; /* TabType uses a lighter weight */
+  font-weight: 400; /* MATCH TABTYPE */
   color: white;
   margin: 25px 0 0 25px; /* top-left */
   letter-spacing: -1.2px;
@@ -27,7 +22,7 @@ h1#title {
   line-height: 1;
   white-space: nowrap;
   display: inline-block;
-  transform: scaleX(0.88); /* matches TabType width */
+  transform: scaleX(0.88); /* final width correction */
   transform-origin: left center;
 }
 
@@ -49,11 +44,17 @@ main {
   margin-top: 20px;
   font-size: 18px;
   padding: 0 5px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400; /* MATCH TABTYPE */
+  letter-spacing: -0.5px; /* MATCH TABTYPE */
 }
 
 #goal-code {
   cursor: pointer;
   transition: 0.2s;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400; /* MATCH TABTYPE */
+  letter-spacing: -0.5px; /* MATCH TABTYPE */
 }
 
 #goal-code:hover {
@@ -66,44 +67,27 @@ main {
 
 #goal-bar {
   width: 100%;
-  height: 12px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 10px;
-  margin-top: 18px;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  margin-top: 15px;
   overflow: hidden;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
 }
 
 #goal-bar-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(
-    90deg,
-    #ebe6e6 0%,
-    #d1cfcf 35%,
-    #636363 70%,
-    #000000 100%
-  );
-  border-radius: 10px;
-  transition: width 0.35s ease-in-out;
-  box-shadow: 0 0 10px rgba(255,200,80,0.6);
+  background: linear-gradient(90deg, #ffcc00, #ff8800);
+  transition: width 0.4s ease;
 }
-
-#goal-bar-fill {
-  animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0% { filter: brightness(1); }
-  50% { filter: brightness(1.25); }
-  100% { filter: brightness(1); }
-}
-
 
 #goal-bar-text {
   margin-top: 8px;
   font-size: 14px;
   opacity: 0.8;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400; /* MATCH TABTYPE */
+  letter-spacing: -0.5px; /* MATCH TABTYPE */
 }
 
 /* ------------------------------
