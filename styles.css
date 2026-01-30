@@ -18,15 +18,16 @@ body {
 
 h1#title {
   font-family: "Syne", sans-serif;
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 800;
   color: white;
-  margin: 30px auto 20px auto;
-  letter-spacing: -1px;
-  font-stretch: 100%;
-  text-align: center;
-  max-width: 320px;
+  margin: 25px 0 0 25px; /* top-left */
+  letter-spacing: -1.5px; /* tighter like TabType */
+  font-stretch: 85%; /* condensed width */
   line-height: 1;
+  white-space: nowrap;
+  transform: scaleX(0.88); /* final width correction */
+  transform-origin: left center; /* keeps it aligned left */
 }
 
 /* Center main content */
