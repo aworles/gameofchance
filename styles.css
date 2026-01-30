@@ -10,24 +10,25 @@ body {
   background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
   background-size: cover;
   background-attachment: fixed;
-}
-
-body {
   color: white;
 }
+
+/* ------------------------------
+   TITLE (Syne)
+------------------------------ */
 
 h1#title {
   font-family: "Syne", sans-serif;
   font-size: 42px;
-  font-weight: 500; /* TabType weight */
+  font-weight: 600;
   color: white;
-  margin: 25px 0 0 25px; /* top-left */
+  margin: 25px 0 0 25px;
   letter-spacing: -1.2px;
-  font-stretch: 85%; /* condensed like TabType */
+  font-stretch: 85%;
   line-height: 1;
   white-space: nowrap;
   display: inline-block;
-  transform: scaleX(1); /* width correction */
+  transform: scaleX(1);
   transform-origin: left center;
 }
 
@@ -40,26 +41,19 @@ main {
 }
 
 /* ------------------------------
-   BALANCE + CODE ROW
+   BALANCE + CODE ROW (JetBrains Mono)
 ------------------------------ */
 
-#balance-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  font-size: 18px;
-  padding: 0 5px;
+#balance-row,
+#goal-code {
   font-family: "JetBrains Mono", monospace;
-  font-weight: 400; /* TabType */
+  font-weight: 400;
   letter-spacing: -0.5px;
 }
 
 #goal-code {
   cursor: pointer;
   transition: 0.2s;
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 400;
-  letter-spacing: -0.5px;
 }
 
 #goal-code:hover {
@@ -67,24 +61,8 @@ main {
 }
 
 /* ------------------------------
-   GOAL BAR (BLACK + WHITE)
+   GOAL BAR TEXT (JetBrains Mono)
 ------------------------------ */
-
-#goal-bar {
-  width: 100%;
-  height: 10px;
-  background: #000; /* black background */
-  border-radius: 6px;
-  margin-top: 15px;
-  overflow: hidden;
-}
-
-#goal-bar-fill {
-  height: 100%;
-  width: 0%;
-  background: #fff; /* white fill */
-  transition: width 0.4s ease;
-}
 
 #goal-bar-text {
   margin-top: 8px;
@@ -96,18 +74,32 @@ main {
 }
 
 /* ------------------------------
-   GAME PANEL
+   GOAL BAR (BLACK + WHITE)
 ------------------------------ */
 
-#game-panel {
-  margin-top: 35px;
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 12px;
-  backdrop-filter: blur(4px);
+#goal-bar {
+  width: 100%;
+  height: 10px;
+  background: #000;
+  border-radius: 6px;
+  margin-top: 15px;
+  overflow: hidden;
 }
 
+#goal-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  transition: width 0.4s ease;
+}
+
+/* ------------------------------
+   GAME PANEL (Roboto)
+------------------------------ */
+
 #game-panel label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   display: block;
   text-align: left;
   margin-bottom: 6px;
@@ -118,6 +110,8 @@ main {
 
 #game-panel input,
 #game-panel select {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   width: 100%;
   padding: 10px;
   border-radius: 8px;
@@ -129,29 +123,18 @@ main {
   transition: 0.15s;
 }
 
-select {
-  appearance: none;
-  background: rgba(255,255,255,0.12);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
 select option {
   background: #1a1a1a;
   color: white;
 }
 
-#game-panel input:focus,
-#game-panel select:focus {
-  background: rgba(255,255,255,0.18);
-}
-
 /* ------------------------------
-   BUTTONS
+   BUTTONS (Roboto)
 ------------------------------ */
 
 button {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   font-size: 16px;
   padding: 10px 22px;
   border-radius: 8px;
@@ -173,10 +156,12 @@ button:hover {
 }
 
 /* ------------------------------
-   MESSAGE AREA
+   MESSAGE AREA (Roboto)
 ------------------------------ */
 
 #message {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   margin-top: 25px;
   font-size: 16px;
   min-height: 40px;
