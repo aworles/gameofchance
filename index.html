@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tab Casino</title>
 
-    <!-- Correct fonts (same as TabType) -->
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Casino</title>
 
-    <!-- Your CSS -->
-    <link rel="stylesheet" href="styles.css?v=2">
+  <!-- Correct fonts (Syne 400/800 + JetBrains Mono 300/400) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="styles.css?v=3">
+
 </head>
-
 <body>
 
-    <h1 id="title">Tab Casino</h1>
+  <!-- Title -->
+  <h1 id="title">Tab Casino</h1>
 
-    <main>
+  <main>
 
-        <!-- Balance + Goal + Code Row -->
-        <div id="balance-row">
-            <div id="balance">Balance: <span id="balance-value">100</span></div>
-            <div id="goal">Goal: <span id="goal-value">2500</span></div>
-            <div id="goal-code">code</div>
-        </div>
+    <!-- Balance + Code Row -->
+    <div id="balance-row">
+      <div id="balance-display">Balance: 100 tabs</div>
+      <div id="goal-code">Code: ---</div>
+    </div>
 
-        <!-- Goal Bar -->
-        <div id="goal-bar">
-            <div id="goal-bar-fill"></div>
-        </div>
-        <div id="goal-bar-text">0 / 2500</div>
+    <!-- Goal Bar -->
+    <div id="goal-bar">
+      <div id="goal-bar-fill"></div>
+    </div>
+    <div id="goal-bar-text">Goal: 5000 tabs</div>
 
-        <!-- Game Panel -->
-        <div id="game-panel">
+    <!-- Game Panel -->
+    <div id="game-panel">
 
-            <label for="bet">Bet Amount</label>
-            <input type="number" id="bet" min="1" value="10">
+      <label>Bet Amount</label>
+      <input id="betInput" type="number" min="1" placeholder="Enter bet">
 
-            <label for="mode">Mode</label>
-            <select id="mode">
-                <option value="50">50/50</option>
-                <option value="70">70% Win</option>
-                <option value="30">30% Win</option>
-            </select>
+      <label>Choose Color</label>
+      <select id="colorInput">
+        <option value="red">Red</option>
+        <option value="white">White</option>
+        <option value="black">Black</option>
+      </select>
 
-            <button id="playBtn">Play</button>
-            <button id="restartBtn">Restart</button>
+      <label>Choose Number</label>
+      <select id="numberInput">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
 
-            <div id="message"></div>
-        </div>
+      <button id="playBtn">Play</button>
 
-    </main>
+      <div id="message"></div>
+    </div>
 
-    <!-- Confetti -->
-    <div id="confetti-container"></div>
+    <!-- Restart Button -->
+    <button id="restartBtn">Restart</button>
 
-    <!-- Your JS -->
-    <script src="script.js"></script>
+  </main>
+
+  <!-- Confetti -->
+  <div id="confetti-container"></div>
+
+  <!-- JS -->
+  <script src="main.js"></script>
 
 </body>
 </html>
