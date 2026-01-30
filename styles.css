@@ -11,6 +11,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: white;
+  font-family: "Roboto", sans-serif; /* DEFAULT UI FONT */
 }
 
 /* ------------------------------
@@ -20,33 +21,37 @@ body {
 h1#title {
   font-family: "Syne", sans-serif;
   font-size: 42px;
-  font-weight: 600;
-  color: white;
+  font-weight: 500;
   margin: 25px 0 0 25px;
   letter-spacing: -1.2px;
   font-stretch: 85%;
   line-height: 1;
   white-space: nowrap;
   display: inline-block;
-  transform: scaleX(1);
   transform-origin: left center;
 }
 
-/* Center main content */
+/* ------------------------------
+   MAIN LAYOUT
+------------------------------ */
+
 main {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  text-align: center;
 }
 
 /* ------------------------------
-   BALANCE + CODE ROW (JetBrains Mono)
+   BALANCE + CODE (JetBrains Mono)
 ------------------------------ */
 
-#balance-row,
-#goal-code {
+#balance-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 5px;
   font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.5px;
 }
@@ -54,23 +59,13 @@ main {
 #goal-code {
   cursor: pointer;
   transition: 0.2s;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+  letter-spacing: -0.5px;
 }
 
 #goal-code:hover {
   color: #ffffff;
-}
-
-/* ------------------------------
-   GOAL BAR TEXT (JetBrains Mono)
------------------------------- */
-
-#goal-bar-text {
-  margin-top: 8px;
-  font-size: 14px;
-  opacity: 0.8;
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 400;
-  letter-spacing: -0.5px;
 }
 
 /* ------------------------------
@@ -93,25 +88,39 @@ main {
   transition: width 0.4s ease;
 }
 
+#goal-bar-text {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.8;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
 /* ------------------------------
-   GAME PANEL (Roboto)
+   GAME PANEL
 ------------------------------ */
 
+#game-panel {
+  margin-top: 35px;
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
 #game-panel label {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
   display: block;
   text-align: left;
   margin-bottom: 6px;
   margin-top: 18px;
   font-size: 15px;
   opacity: 0.85;
+  font-family: "Roboto", sans-serif;
 }
 
 #game-panel input,
 #game-panel select {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
   width: 100%;
   padding: 10px;
   border-radius: 8px;
@@ -121,6 +130,7 @@ main {
   font-size: 16px;
   outline: none;
   transition: 0.15s;
+  font-family: "Roboto", sans-serif;
 }
 
 select option {
@@ -143,16 +153,17 @@ button {
   transition: 0.2s;
   background: rgba(255,255,255,0.15);
   color: white;
-  margin-top: 25px;
+  margin-top: 20px; /* FIXED GAP */
+  display: block;
+  width: 100%; /* FIXED CENTERING */
+}
+
+#restartBtn {
+  margin-top: 15px; /* FIXED GAP BETWEEN PLAY + RESTART */
 }
 
 button:hover {
   background: rgba(255,255,255,0.25);
-}
-
-#restartBtn {
-  display: block;
-  margin: 30px auto 0 auto;
 }
 
 /* ------------------------------
@@ -161,8 +172,7 @@ button:hover {
 
 #message {
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 16px;
   min-height: 40px;
   line-height: 1.4;
