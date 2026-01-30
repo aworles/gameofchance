@@ -1,180 +1,169 @@
-/* ------------------------------
-   GLOBAL
------------------------------- */
+// ------------------------------
+// GAME STATE
+// ------------------------------
 
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-  color: rgba(255,255,255,0.9);
-  font-family: "JetBrains Mono", monospace;
-  user-select: none;
+let balance = 100;
+const goal = 5000;
+let goalCode = "---";
+
+const colors = ["red", "white", "black"];
+
+// ------------------------------
+// ELEMENTS
+// ------------------------------
+
+const balanceDisplay = document.getElementById("balance-display");
+const goalCodeEl = document.getElementById("goal-code");
+
+const betInput = document.getElementById("betInput");
+const colorInput = document.getElementById("colorInput");
+const numberInput = document.getElementById("numberInput");
+
+const playBtn = document.getElementById("playBtn");
+const restartBtn = document.getElementById("restartBtn");
+
+const message = document.getElementById("message");
+
+const goalBarFill = document.getElementById("goal-bar-fill");
+
+// ------------------------------
+// INITIAL SETUP
+// ------------------------------
+
+updateBalance();
+updateGoalBar();
+updateGoalCode();
+
+// ------------------------------
+// HELPERS
+// ------------------------------
+
+function updateBalance() {
+  balanceDisplay.textContent = `Balance: ${balance} tabs`;
 }
 
-h1#title {
-  font-family: "Syne", sans-serif;
-  font-size: 42px;
-  font-weight: 800;
-  margin: 25px;
-  color: white;
+function updateGoalBar() {
+  const fill = Math.min(balance / goal, 1);
+  goalBarFill.style.width = (fill * 100) + "%";
 }
 
-/* Center main content */
-main {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+function updateGoalCode() {
+  goalCodeEl.textContent = "Code: " + goalCode;
 }
 
-/* ------------------------------
-   BALANCE + CODE ROW
------------------------------- */
-
-#balance-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  font-size: 18px;
-  padding: 0 5px;
+function log(msg) {
+  message.innerHTML = msg;
 }
 
-#goal-code {
-  cursor: pointer;
-  transition: 0.2s;
+function randomColor() {
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 
-#goal-code:hover {
-  color: #ffd86b;
+function randomNumber() {
+  return Math.floor(Math.random() * 10) + 1;
 }
 
-/* ------------------------------
-   GOAL BAR
------------------------------- */
+// ------------------------------
+// CONFETTI
+// ------------------------------
 
-#goal-bar {
-  width: 100%;
-  height: 10px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 6px;
-  margin-top: 15px;
-  overflow: hidden;
+function baguetteConfetti() {
+  const container = document.getElementById("confetti-container");
+
+  for (let i = 0; i < 120; i++) {
+    setTimeout(() => {
+      const el = document.createElement("div");
+      el.className = "baguette";
+
+      const icons = ["🥖", "🥐"];
+      el.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = (1.5 + Math.random() * 2.5) + "rem";
+      el.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 8000);
+    }, i * 20);
+  }
 }
 
-#goal-bar-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #ffcc00, #ff8800);
-  transition: width 0.4s ease;
-}
+// ------------------------------
+// MAIN GAME LOGIC
+// ------------------------------
 
-#goal-bar-text {
-  margin-top: 8px;
-  font-size: 14px;
-  opacity: 0.8;
-}
+playBtn.addEventListener("click", () => {
 
-/* ------------------------------
-   GAME PANEL
------------------------------- */
+  if (balance <= 0) {
+    log("You have no tabs left.");
+    return;
+  }
 
-#game-panel {
-  margin-top: 35px;
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 12px;
-  backdrop-filter: blur(4px);
-}
+  let bet = parseInt(betInput.value);
 
-#game-panel label {
-  display: block;
-  text-align: left;
-  margin-bottom: 6px;
-  margin-top: 18px;
-  font-size: 15px;
-  opacity: 0.85;
-}
+  // INVALID BET → PENALTY
+  if (isNaN(bet) || bet <= 0 || bet > balance) {
+    const penalty = Math.floor(balance * 0.10);
+    balance -= penalty;
+    updateBalance();
+    updateGoalBar();
+    log(`Invalid bet! You lost ${penalty} tabs.`);
+    return;
+  }
 
-#game-panel input,
-#game-panel select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 0;
-  background: rgba(255,255,255,0.12);
-  color: white;
-  font-size: 16px;
-  outline: none;
-  transition: 0.15s;
-}
+  // SUBTRACT BET ONCE
+  balance -= bet;
 
-#game-panel input:focus,
-#game-panel select:focus {
-  background: rgba(255,255,255,0.18);
-}
+  const userColor = colorInput.value.toLowerCase();
+  const userNumber = parseInt(numberInput.value);
 
-/* ------------------------------
-   BUTTONS
------------------------------- */
+  const correctColor = randomColor();
+  const correctNumber = randomNumber();
 
-button {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 16px;
-  padding: 10px 22px;
-  border-radius: 8px;
-  border: 0;
-  cursor: pointer;
-  transition: 0.2s;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  margin-top: 25px;
-}
+  // WINNING LOGIC
+  if (userColor === correctColor && userNumber === correctNumber) {
+    balance += bet * 3;
+    log(`JACKPOT! You hit BOTH! +${bet * 3} tabs`);
+  } else if (userColor === correctColor) {
+    const win = Math.floor(bet * 1.5);
+    balance += win;
+    log(`Correct color! +${win} tabs`);
+  } else if (userNumber === correctNumber) {
+    balance += bet * 2;
+    log(`Correct number! +${bet * 2} tabs`);
+  } else {
+    log(`No win this round.`);
+  }
 
-button:hover {
-  background: rgba(255,255,255,0.25);
-}
+  updateBalance();
+  updateGoalBar();
 
-/* Center restart button */
-#restartBtn {
-  display: block;
-  margin: 30px auto 0 auto;
-}
+  // SHOW CORRECT ANSWERS
+  message.innerHTML += `<br><span style="opacity:0.7;">Correct: ${correctColor}, ${correctNumber}</span>`;
 
-/* ------------------------------
-   MESSAGE AREA
------------------------------- */
+  // GOAL REACHED
+  if (balance >= goal && goalCode === "---") {
+    baguetteConfetti();
+    goalCode = "49201"; // your code
+    updateGoalCode();
+    log("🎉 You've reached your goal! Code unlocked!");
+  }
 
-#message {
-  margin-top: 25px;
-  font-size: 16px;
-  min-height: 40px;
-  line-height: 1.4;
-  opacity: 0.9;
-}
+  // GAME OVER
+  if (balance <= 0) {
+    log("You lost all your tabs.");
+  }
+});
 
-/* ------------------------------
-   CONFETTI
------------------------------- */
+// ------------------------------
+// RESTART
+// ------------------------------
 
-#confetti-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.baguette {
-  position: absolute;
-  top: -50px;
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-}
-
-@keyframes fall {
-  0% { transform: translateY(-50px) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
-}
+restartBtn.addEventListener("click", () => {
+  balance = 100;
+  goalCode = "---";
+  updateBalance();
+  updateGoalBar();
+  updateGoalCode();
+  log("Game restarted.");
+});
