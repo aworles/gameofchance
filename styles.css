@@ -79,13 +79,11 @@ main {
     #ffd36b 35%,
     #ffb84d 70%,
     #ff9c3d 100%
-  ) !important;
+  );
   border-radius: 10px;
   transition: width 0.35s ease-in-out;
   box-shadow: 0 0 10px rgba(255,200,80,0.6);
-  animation: pulse 2s infinite ease-in-out;
 }
-
 
 #goal-bar-fill {
   animation: pulse 2s infinite ease-in-out;
