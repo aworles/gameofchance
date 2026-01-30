@@ -1,0 +1,180 @@
+/* ------------------------------
+   GLOBAL
+------------------------------ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: rgba(255,255,255,0.9);
+  font-family: "JetBrains Mono", monospace;
+  user-select: none;
+}
+
+h1#title {
+  font-family: "Syne", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 25px;
+  color: white;
+}
+
+/* Center main content */
+main {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ------------------------------
+   BALANCE + CODE ROW
+------------------------------ */
+
+#balance-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+#goal-code {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#goal-code:hover {
+  color: #ffd86b;
+}
+
+/* ------------------------------
+   GOAL BAR
+------------------------------ */
+
+#goal-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+#goal-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffcc00, #ff8800);
+  transition: width 0.4s ease;
+}
+
+#goal-bar-text {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ------------------------------
+   GAME PANEL
+------------------------------ */
+
+#game-panel {
+  margin-top: 35px;
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+#game-panel label {
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+  margin-top: 18px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+#game-panel input,
+#game-panel select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: 0.15s;
+}
+
+#game-panel input:focus,
+#game-panel select:focus {
+  background: rgba(255,255,255,0.18);
+}
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+
+button {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  transition: 0.2s;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  margin-top: 25px;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Center restart button */
+#restartBtn {
+  display: block;
+  margin: 30px auto 0 auto;
+}
+
+/* ------------------------------
+   MESSAGE AREA
+------------------------------ */
+
+#message {
+  margin-top: 25px;
+  font-size: 16px;
+  min-height: 40px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* ------------------------------
+   CONFETTI
+------------------------------ */
+
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.baguette {
+  position: absolute;
+  top: -50px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
