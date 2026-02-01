@@ -174,3 +174,7 @@ restartBtn.addEventListener("click", () => {
   updateGoalText();
   log("Game restarted.");
 });
+
+document.querySelector(".overlay-start").addEventListener("click", () => {
+  document.querySelector(".overlay-screen").style.display = "none";
+});
