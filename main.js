@@ -29,7 +29,6 @@ const restartBtn = document.getElementById("restartBtn");
 const message = document.getElementById("message");
 
 const goalBarFill = document.getElementById("goal-bar-fill");
-const goalBarText = document.getElementById("goal-bar-text");
 
 // ------------------------------
 // INITIAL SETUP
@@ -38,7 +37,6 @@ const goalBarText = document.getElementById("goal-bar-text");
 updateBalance();
 updateGoalBar();
 updateGoalCode();
-updateGoalText();
 
 // ------------------------------
 // HELPERS
@@ -155,9 +153,9 @@ playBtn.addEventListener("click", () => {
   updateBalance();
   updateGoalBar();
 
-  // SHOW CORRECT ANSWERS
+  // SHOW CORRECT ANSWERS + STREAKS
   message.innerHTML += `<br><span style="opacity:0.7;">Correct: ${correctColor}, ${correctNumber}</span>`;
-  message.innerHTML += `<br><span style="opacity:0.7;">Number streak: ${numberStreak} | Color streak: ${colorStreak}</span>`;
+  message.innerHTML += `<br><span style="opacity:0.7;">Number streak: ${numberStreak} / 3 | Color streak: ${colorStreak} / 6</span>`;
 
   // ------------------------------
   // GOAL CHECK (ANY OF THE THREE)
@@ -195,6 +193,10 @@ restartBtn.addEventListener("click", () => {
   updateGoalCode();
   log("Game restarted.");
 });
+
+// ------------------------------
+// OVERLAY
+// ------------------------------
 
 document.querySelector(".overlay-start").addEventListener("click", () => {
   document.querySelector(".overlay-screen").style.display = "none";
