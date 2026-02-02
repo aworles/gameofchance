@@ -3,7 +3,7 @@
 // ------------------------------
 
 let balance = 100;
-const goal = 1000; // ← CHANGE YOUR GOAL HERE
+const goal = 500; // ← CHANGE YOUR GOAL HERE
 let goalCode = "---";
 
 const colors = ["red", "white", "black"];
