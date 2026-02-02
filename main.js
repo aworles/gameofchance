@@ -197,7 +197,6 @@ restartBtn.addEventListener("click", () => {
   updateBalance();
   updateGoalBar();
   updateGoalCode();
-  updateGoalText();
   log("Game restarted.");
 });
 
