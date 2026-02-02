@@ -3,7 +3,7 @@
 // ------------------------------
 
 let balance = 100;
-const goal = 402; // chip goal
+const goal = 600; // chip goal
 let goalCode = "---";
 
 // streak goals
@@ -162,15 +162,15 @@ playBtn.addEventListener("click", () => {
   // ------------------------------
 
   const goalReached =
-    balance >= 402 ||
+    balance >= 600 ||
     numberStreak >= 3 ||
     colorStreak >= 6;
 
   if (goalReached && goalCode === "---") {
     baguetteConfetti();
-    goalCode = "49201"; // your code
+    goalCode = "240"; // your code
     updateGoalCode();
-    log("🎉 You've completed a goal! Code unlocked!");
+    log("You've completed a goal! Code unlocked!");
   }
 
   // GAME OVER
