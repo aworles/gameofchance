@@ -53,10 +53,6 @@ function updateGoalBar() {
   goalBarFill.style.width = (fill * 100) + "%";
 }
 
-function updateGoalText() {
-  goalBarText.textContent = `Goal: ${goal} tabs`;
-}
-
 function updateGoalCode() {
   goalCodeEl.textContent = "Code: " + goalCode;
 }
