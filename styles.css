@@ -180,6 +180,19 @@ button:hover {
   line-height: 1.4;
   opacity: 0.9;
 }
+/* GOALS
+*/
+
+#alt-goals {
+  text-align: center;
+  margin-top: 6px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+#alt-goals p {
+  margin: 2px 0;
+}
 
 /* ------------------------------
    CONFETTI
