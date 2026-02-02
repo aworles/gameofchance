@@ -183,15 +183,25 @@ button:hover {
 /* GOALS
 */
 
-#alt-goals {
+#goal-line {
+  margin-top: 8px;
   text-align: center;
-  margin-top: 6px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.9rem;
-  opacity: 0.75;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
 }
-#alt-goals p {
-  margin: 2px 0;
+
+.goal-item {
+  font-weight: 400;
+}
+
+.goal-sep {
+  opacity: 0.6;
+  font-weight: 300;
 }
 
 /* ------------------------------
